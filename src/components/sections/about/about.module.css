@@ -1,0 +1,162 @@
+.section {
+  padding: 6rem 1.5rem;
+}
+
+.container {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+/* ── Two-column layout ─────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3.5rem;
+  }
+}
+
+/* ── Left column ───────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bioCard {
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+}
+
+.cardLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.bio {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+.factsCard {
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-in);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+}
+
+.factsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.factItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.factIcon {
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.factLink {
+  color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+
+.factLink:hover {
+  text-decoration: underline;
+}
+
+/* ── Right column — Skills ─────────────────────── */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.skillsHeader {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.25rem;
+}
+
+.categoryBlock {
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.875rem;
+}
+
+.categoryDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+  box-shadow: 0 0 6px var(--color-accent);
+}
+
+.categoryName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  border-radius: 9999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out-sm);
+  transition: box-shadow 0.2s ease, color 0.2s ease;
+  cursor: default;
+  user-select: none;
+}
+
+.tag:hover {
+  box-shadow: var(--neo-shadow-in);
+  color: var(--color-accent);
+}

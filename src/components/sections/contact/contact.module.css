@@ -1,0 +1,74 @@
+.section {
+  padding: 6rem 1.5rem;
+}
+
+.container {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 480px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.cardLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.cardLink {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+  text-underline-offset: 3px;
+  word-break: break-all;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+.resumeBtn {
+  display: inline-block;
+  border-radius: 1rem;
+  padding: 0.875rem 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out-sm);
+  text-decoration: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.resumeBtn:hover {
+  box-shadow: var(--neo-shadow-out);
+}
+
+.resumeBtn:active {
+  box-shadow: var(--neo-shadow-in);
+}

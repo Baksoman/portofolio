@@ -1,26 +1,303 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── Light Theme ─────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  --color-bg: #d8dede;
+  --color-surface: #bab2a7;
+  --color-surface-2: #788e9c;
+  --color-text: #383b4e;
+  --color-text-muted: #5a5f77;
+  --color-accent: #4c3e3e;
+
+  /* Neomorphism shadows — light */
+  --neo-shadow-out:
+    8px 8px 16px rgba(0, 0, 0, 0.15),
+    -8px -8px 16px rgba(255, 255, 255, 0.7);
+  --neo-shadow-out-lg:
+    12px 12px 24px rgba(0, 0, 0, 0.18),
+    -10px -10px 20px rgba(255, 255, 255, 0.75);
+  --neo-shadow-in:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.12),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.65);
+  --neo-shadow-in-lg:
+    inset 6px 6px 14px rgba(0, 0, 0, 0.15),
+    inset -5px -5px 12px rgba(255, 255, 255, 0.7);
+  --neo-shadow-out-sm:
+    4px 4px 8px rgba(0, 0, 0, 0.12),
+    -4px -4px 8px rgba(255, 255, 255, 0.65);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Dark Theme ──────────────────────────────────────────── */
+[data-theme="dark"] {
+  --color-bg: #0f1217;
+  --color-surface: #275f6c;
+  --color-surface-2: #7aaaaa;
+  --color-text: #F1DABE;
+  --color-text-muted: #d4bc9c;
+  --color-accent: #f5d1a6;
+
+  /* Neomorphism shadows — dark */
+  --neo-shadow-out:
+    8px 8px 16px rgba(0, 0, 0, 0.5),
+    -8px -8px 16px rgba(255, 255, 255, 0.04);
+  --neo-shadow-out-lg:
+    12px 12px 24px rgba(0, 0, 0, 0.6),
+    -10px -10px 20px rgba(255, 255, 255, 0.05);
+  --neo-shadow-in:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.03);
+  --neo-shadow-in-lg:
+    inset 6px 6px 14px rgba(0, 0, 0, 0.5),
+    inset -5px -5px 12px rgba(255, 255, 255, 0.04);
+  --neo-shadow-out-sm:
+    4px 4px 8px rgba(0, 0, 0, 0.4),
+    -4px -4px 8px rgba(255, 255, 255, 0.03);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* ─── Focus ring ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ─── Neomorphic utilities ────────────────────────────────── */
+
+/* Raised card */
+.neo-card {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+  transition:
+    box-shadow 0.25s ease,
+    background-color 0.3s ease;
+}
+
+/* Raised button — generic */
+.neo-btn {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-out-sm);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+.neo-btn:hover {
+  box-shadow: var(--neo-shadow-out);
+  transform: translateY(-1px);
+}
+.neo-btn:active {
+  box-shadow: var(--neo-shadow-in);
+  transform: translateY(0);
+}
+
+/* Inset / pressed */
+.neo-btn-inset {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-in);
+  transition:
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.neo-btn-inset:hover {
+  box-shadow: var(--neo-shadow-out-sm);
+}
+
+/* ─── Hero neomorphic elements ────────────────────────────── */
+
+/* CTA button utama — menonjol keluar */
+.neo-btn-primary {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.15s ease,
+    background-color 0.3s ease;
+}
+.neo-btn-primary:hover {
+  box-shadow: var(--neo-shadow-out-lg);
+  transform: translateY(-2px);
+}
+.neo-btn-primary:active {
+  box-shadow: var(--neo-shadow-in);
+  transform: translateY(1px);
+}
+
+/* CTA button accent — outset + border accent */
+.neo-btn-accent {
+  background-color: var(--color-bg);
+  box-shadow:
+    var(--neo-shadow-out),
+    inset 0 0 0 1.5px var(--color-accent);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.15s ease,
+    background-color 0.3s ease;
+}
+.neo-btn-accent:hover {
+  box-shadow:
+    var(--neo-shadow-out-lg),
+    inset 0 0 0 1.5px var(--color-accent);
+  transform: translateY(-2px);
+}
+.neo-btn-accent:active {
+  box-shadow:
+    var(--neo-shadow-in),
+    inset 0 0 0 1.5px var(--color-accent);
+  transform: translateY(1px);
+}
+
+/* Pill badge greeting */
+.neo-pill {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-out-sm);
+}
+
+/* Title chip — tertekan ke dalam */
+.neo-inset {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-in);
+}
+
+/* Social link — outset subtle */
+.neo-social-link {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-out-sm);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.15s ease,
+    color 0.2s ease,
+    background-color 0.3s ease;
+}
+.neo-social-link:hover {
+  box-shadow: var(--neo-shadow-out);
+  transform: translateY(-1px);
+}
+.neo-social-link:active {
+  box-shadow: var(--neo-shadow-in);
+  transform: translateY(0);
+}
+
+/* Scroll indicator track */
+.neo-scroll-track {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-in);
+}
+
+/* ─── Dot pulse ───────────────────────────────────────────── */
+.neo-dot {
+  box-shadow: 0 0 6px var(--color-accent);
+  animation: neo-pulse 2s ease-in-out infinite;
+}
+@keyframes neo-pulse {
+  0%, 100% { opacity: 1;   box-shadow: 0 0 6px  var(--color-accent); }
+  50%       { opacity: 0.5; box-shadow: 0 0 14px var(--color-accent); }
+}
+
+/* ─── Scroll dot animation ────────────────────────────────── */
+@keyframes scrollDot {
+  0%   { transform: translateY(0px);  opacity: 1; }
+  75%  { transform: translateY(18px); opacity: 0; }
+  76%  { transform: translateY(0px);  opacity: 0; }
+  100% { transform: translateY(0px);  opacity: 1; }
+}
+.animate-scroll-dot {
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-2);
+}
+
+/* ─── Selection ───────────────────────────────────────────── */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* ─── Header nav link — desktop ──────────────────────────── */
+.neo-nav-link {
+  background-color: transparent;
+  box-shadow: none;
+  transition:
+    box-shadow 0.18s ease,
+    color 0.18s ease,
+    transform 0.15s ease,
+    background-color 0.18s ease;
+}
+.neo-nav-link:hover {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-out-sm);
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+.neo-nav-link:active {
+  box-shadow: var(--neo-shadow-in);
+  transform: translateY(0);
+}
+
+/* ─── Island hamburger button ─────────────────────────────── */
+.neo-island-btn {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-out-sm);
+  transition:
+    box-shadow 0.18s ease,
+    transform 0.15s ease;
+}
+.neo-island-btn:hover {
+  box-shadow: var(--neo-shadow-out);
+  transform: scale(1.06);
+}
+.neo-island-btn:active {
+  box-shadow: var(--neo-shadow-in);
+  transform: scale(0.96);
+}
+
+/* ─── Island nav link — mobile ───────────────────────────── */
+.neo-island-link {
+  background-color: transparent;
+  box-shadow: none;
+  transition:
+    box-shadow 0.18s ease,
+    color 0.18s ease,
+    background-color 0.18s ease;
+}
+.neo-island-link:hover {
+  background-color: var(--color-bg);
+  box-shadow: var(--neo-shadow-in);
+  color: var(--color-accent);
+}
+.neo-island-link:active {
+  box-shadow: var(--neo-shadow-in-lg);
 }
