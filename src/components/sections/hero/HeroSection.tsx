@@ -35,8 +35,8 @@ export function HeroSection() {
           <ScrollLink href="#about" className={styles.btnPrimary}>
             Explore My Work
           </ScrollLink>
-          <ScrollLink href={personalInfo.resumeUrl} download className={styles.btnAccent}>
-            Download Resume
+          <ScrollLink href="#contact" className={styles.btnAccent}>
+            Contact Me
           </ScrollLink>
         </div>
 

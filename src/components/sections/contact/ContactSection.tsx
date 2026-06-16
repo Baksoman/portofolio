@@ -47,13 +47,13 @@ export function ContactSection() {
           ))}
         </div>
 
-        <ScrollLink
+        {/* <ScrollLink
           href={personalInfo.resumeUrl}
           download
           className={styles.resumeBtn}
         >
           Download Resume
-        </ScrollLink>
+        </ScrollLink> */}
       </div>
     </section>
   );
