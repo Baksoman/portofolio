@@ -11,7 +11,6 @@ export function Footer() {
           <span className="font-medium text-[var(--color-text)]">
             {personalInfo.name}
           </span>
-          . Built with Next.js &amp; Tailwind CSS.
         </p>
       </div>
     </footer>
