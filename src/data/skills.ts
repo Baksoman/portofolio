@@ -6,22 +6,20 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "PHP" },
       { name: "Laravel" },
-      { name: "Java" },
-      { name: "Python" },
       { name: "FastAPI" },
-      { name: "Node.js" },
     ],
   },
   {
     category: "Frontend",
     skills: [
-      { name: "HTML5" },
-      { name: "CSS3" },
+      { name: "HTML" },
+      { name: "CSS" },
       { name: "JavaScript" },
       { name: "TypeScript" },
       { name: "Next.js" },
       { name: "Tailwind CSS" },
       { name: "Bootstrap" },
+      { name: "Three.js" },
     ],
   },
   {

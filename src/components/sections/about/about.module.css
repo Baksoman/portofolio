@@ -1,3 +1,14 @@
+/* ── Keyframe ──────────────────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── Section ───────────────────────────────────── */
 .section {
   padding: 6rem 1.5rem;
 }
@@ -12,7 +23,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
-  align-items: start;
+  align-items: center;
 }
 
 @media (min-width: 1024px) {
@@ -29,11 +40,50 @@
   gap: 1.5rem;
 }
 
+/* ── Bio Card ──────────────────────────────────── */
 .bioCard {
   background: var(--color-bg);
   box-shadow: var(--neo-shadow-out);
-  border-radius: 1.25rem;
+  border-radius: 1.5rem;
   padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.bioCard::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  top: -40px;
+  right: -40px;
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+}
+
+.bioCard::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  bottom: -20px;
+  left: 20px;
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+}
+
+.blobTri {
+  position: absolute;
+  bottom: 40px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50% 0 50% 50%;
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+  transform: rotate(15deg);
 }
 
 .cardLabel {
@@ -43,80 +93,130 @@
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
 }
 
 .bio {
   font-size: 0.9375rem;
   line-height: 1.75;
   color: var(--color-text);
+  position: relative;
+  z-index: 1;
 }
 
-.factsCard {
-  background: var(--color-bg);
-  box-shadow: var(--neo-shadow-in);
-  border-radius: 1.25rem;
-  padding: 1.75rem;
-}
-
-.factsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* ── Right column ──────────────────────────────── */
+.right {
   display: flex;
   flex-direction: column;
-  gap: 0.875rem;
+  min-width: 0;
 }
 
-.factItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 0.875rem;
-  color: var(--color-text);
-}
-
-.factIcon {
-  flex-shrink: 0;
-  margin-top: 0.05rem;
-}
-
-.factLink {
-  color: var(--color-accent);
-  text-underline-offset: 3px;
-}
-
-.factLink:hover {
-  text-decoration: underline;
-}
-
-/* ── Right column — Skills ─────────────────────── */
-.right {
+/* ── Skills Card ───────────────────────────────── */
+.skillsCard {
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
+/* ── Decorative neomorphic shapes ──────────────── */
+.decoRing {
+  position: absolute;
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: none;
+}
+
+.decoRing1 {
+  width: 100px;
+  height: 100px;
+  top: -30px;
+  left: -30px;
+  box-shadow:
+    6px 6px 14px var(--neo-dark),
+    -6px -6px 14px var(--neo-light),
+    inset 2px 2px 6px var(--neo-dark),
+    inset -2px -2px 6px var(--neo-light);
+}
+
+.decoRing2 {
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: -15px;
+  box-shadow:
+    5px 5px 12px var(--neo-dark),
+    -5px -5px 12px var(--neo-light),
+    inset 2px 2px 5px var(--neo-dark),
+    inset -2px -2px 5px var(--neo-light);
+}
+
+.decoSq {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 0.75rem;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%) rotate(28deg);
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-out);
+  pointer-events: none;
+}
+
+.decoDot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  box-shadow:
+    3px 3px 7px var(--neo-dark),
+    -3px -3px 7px var(--neo-light);
+  pointer-events: none;
+}
+
+.decoDot1 {
+  top: 30px;
+  right: 30px;
+}
+.decoDot2 {
+  bottom: 50px;
+  left: 30px;
+}
+.decoDot3 {
+  top: 55%;
+  right: 20px;
+}
+
+/* ── Skills header label ───────────────────────── */
 .skillsHeader {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: 0.25rem;
+  position: relative;
+  z-index: 1;
 }
 
+/* ── Category block ────────────────────────────── */
 .categoryBlock {
-  background: var(--color-bg);
-  box-shadow: var(--neo-shadow-out);
-  border-radius: 1.25rem;
-  padding: 1.25rem 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .categoryHeader {
   display: flex;
   align-items: center;
   gap: 0.625rem;
-  margin-bottom: 0.875rem;
+  margin-bottom: 0.5rem;
 }
 
 .categoryDot {
@@ -136,24 +236,91 @@
   color: var(--color-text);
 }
 
-.tagCloud {
+/* ── Marquee ───────────────────────────────────── */
+.marqueeWrap {
+  background: var(--color-bg);
+  box-shadow: var(--neo-shadow-in);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  padding: 0.75rem 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
 }
 
+.marqueeWrap::before,
+.marqueeWrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2.5rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marqueeWrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg) 0%, transparent 100%);
+}
+
+.marqueeWrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg) 0%, transparent 100%);
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  white-space: nowrap;
+  will-change: transform;
+  padding: 0 1rem;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 10s) linear infinite;
+}
+
+.marqueeTrack.paused {
+  animation-play-state: paused !important;
+}
+
+/* ── Tags ──────────────────────────────────────── */
 .tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 9999px;
-  padding: 0.3rem 0.9rem;
-  font-size: 0.8rem;
+  padding: 0.35rem 1rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: var(--color-text);
   background: var(--color-bg);
   box-shadow: var(--neo-shadow-out-sm);
-  transition: box-shadow 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
   cursor: default;
   user-select: none;
+  transition:
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+/* ── Separator Wall ────────────────────────────── */
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 0.5rem;
+}
+
+.separatorWall {
+  width: 4px;
+  height: 1.25rem;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--color-accent);
+  opacity: 0.8;
 }
 
 .tag:hover {
