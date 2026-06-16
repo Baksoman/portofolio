@@ -1,61 +1,127 @@
 import { Project } from "@/src/types/portfolio";
 
-/**
- * Add your projects here.
- * - imageUrl: put the image in /public/projects/ and reference it as "/projects/your-image.jpg"
- * - imageFallbackColor: shown when imageUrl is empty or image fails to load
- * - contributions: bullet points describing YOUR role / what YOU built
- */
 export const projects: Project[] = [
   {
-    id: "project-1",
-    title: "Project Title",
-    description: "Short one-line description shown on the gallery card.",
+    id: "bem-petra",
+    title: "BEM Petra Official Website",
+    description:
+      "An interactive, high-performance web portal for Petra Christian University's Student Executive Board.",
     longDescription:
-      "A longer paragraph describing the project in more detail — what problem it solves, who uses it, and the overall architecture.",
+      "A collaborative group project to build a digital hub for BEM Petra (LIFT Cabinet). The platform blends smooth animations with real-time data to showcase the cabinet's vision, members, events, and student units (UKM). I took full ownership of the full-stack development, bridging Creative team designs with a robust backend to ensure a responsive, immersive experience.",
     contributions: [
-      "Describe your role or contribution here",
-      "Another specific thing you built or designed",
-      "A third contribution, e.g. 'Integrated payment gateway with Stripe'",
+      "Lead Full-Stack Developer",
+      "Architected the full-stack ecosystem connecting Next.js frontend with Laravel backend",
+      "Implemented Next.js App Router, SSR, and ISR for optimal performance and SEO",
+      "Developed interactive 3D elements and mascot animations",
     ],
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Laravel",
+      "Tailwind CSS",
+      "GSAP",
+    ],
     githubUrl: "",
     liveUrl: "",
-    imageUrl: "",
+    folderUrl: "/assets/project/bem-main",
     imageFallbackColor: "#275f6c",
   },
   {
-    id: "project-2",
-    title: "Another Project",
-    description: "Short description of this project.",
+    id: "lombanesia",
+    title: "Lombanesia",
+    description:
+      "Competition management and discovery marketplace for Indonesian students.",
     longDescription:
-      "More detail about this project — context, goals, and what makes it interesting.",
+      "A centralized marketplace bridging organizers and participants. The platform provides verified, subscription-based tools for organizers and advanced filtering for students to discover competitions.",
     contributions: [
-      "Your main contribution",
-      "A specific feature you implemented",
-      "Performance improvement or architecture decision you made",
+      "Lead Full-Stack Developer & PIC for interns",
+      "Architected backend infrastructure and developed the complete admin dashboard",
+      "Developed frontend user pages and implemented secure payment verification workflows",
+      "Implemented Role-Based Access Control (RBAC) using Spatie Laravel Permission",
     ],
-    techStack: ["Laravel", "PHP", "MySQL"],
+    techStack: [
+      "Laravel",
+      "Livewire",
+      "Alpine.js",
+      "Tailwind CSS",
+      "MySQL",
+      "Spatie Permission",
+    ],
     githubUrl: "",
     liveUrl: "",
-    imageUrl: "",
+    folderUrl: "/assets/project/lombanesia",
+    imageFallbackColor: "#5f4b32",
+  },
+  {
+    id: "bom-2026",
+    title: "BOM OpenRegis",
+    description:
+      "Interactive multi-game event management platform for large-scale competitive academic events.",
+    longDescription:
+      "A comprehensive event management system featuring complex team registration workflows, administrative tracking, and multi-game mechanics (Mindsweeper, Mindcraft, Tipping Point) with real-time synchronized leaderboards.",
+    contributions: [
+      "Vice Coordinator of IT",
+      "Developed real-time interactive games using WebSockets and polling techniques",
+      "Optimized team registration system with autosave functionality using Laravel Livewire",
+      "Engineered automated early-bird logic with quota validation and expiration status",
+    ],
+    techStack: [
+      "Laravel",
+      "Livewire",
+      "Alpine.js",
+      "Tailwind CSS",
+      "Pusher/Ably",
+      "Redis",
+    ],
+    githubUrl: "",
+    liveUrl: "",
+    folderUrl: "/assets/project/bom-2026",
     imageFallbackColor: "#4c3e3e",
   },
   {
-    id: "project-3",
-    title: "Third Project",
-    description: "What this project does in one sentence.",
+    id: "pc-smart-builder",
+    title: "PC Smart Builder",
+    description:
+      "Intelligent platform automating PC component selection using algorithmic optimization.",
     longDescription:
-      "Full description of the third project — background, what you built, and the outcome.",
+      "A sophisticated web platform that leverages a multi-criteria optimization algorithm to help users create optimal PC builds. It validates compatibility and performance while maximizing budget utilization through a rule-based expert system.",
     contributions: [
-      "First contribution",
-      "Second contribution",
-      "Third contribution",
+      "Designed and developed the core recommendation engine and scoring algorithm",
+      "Implemented a graph-based compatibility checker to automate conflict resolution",
+      "Developed the bottleneck analysis system to ensure hardware performance balance",
+      "Built a reactive user interface using Livewire and Volt",
     ],
-    techStack: ["Python", "FastAPI", "Docker"],
+    techStack: [
+      "Laravel",
+      "Livewire",
+      "Volt",
+      "Tailwind CSS",
+      "Alpine.js",
+      "MySQL",
+    ],
     githubUrl: "",
     liveUrl: "",
-    imageUrl: "",
+    folderUrl: "/assets/project/pc-smart-builder",
     imageFallbackColor: "#383b4e",
+  },
+  {
+    id: "white-myth-wukong",
+    title: "White Myth Wukong",
+    description:
+      "A solo-developed 2D action-adventure game featuring intelligent enemy AI.",
+    longDescription:
+      "A 2D action-adventure game built from scratch using Java and libGDX. The project features custom A* pathfinding, multi-geometry collision detection, and a modular level management system.",
+    contributions: [
+      "Solo Game Developer",
+      "Programmed a custom A* pathfinding algorithm for intelligent enemy AI",
+      "Implemented an advanced multi-geometry collision detection system",
+      "Designed pixel-art maps using Tiled and handled full game state management",
+    ],
+    techStack: ["Java", "libGDX", "Tiled Map Editor", "Box2D"],
+    githubUrl: "",
+    liveUrl: "",
+    folderUrl: "/assets/project/white-myth-wukong",
+    imageFallbackColor: "#6c2727",
   },
 ];

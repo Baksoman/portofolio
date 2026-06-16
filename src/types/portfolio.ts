@@ -33,7 +33,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   /** Path relative to /public, e.g. "/projects/my-app.jpg" */
-  imageUrl: string;
+  folderUrl?: string;
   /** Solid fallback color when no image is provided (CSS color string) */
   imageFallbackColor?: string;
 }
