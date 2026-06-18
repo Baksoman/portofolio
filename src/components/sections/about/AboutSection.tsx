@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { personalInfo } from "@/src/data/personal";
 import { skillCategories } from "@/src/data/skills";
 import { SectionHeading } from "@/src/components/ui/SectionHeading";
+import { useTrans } from "@/src/contexts/LanguageContext";
 import styles from "./about.module.css";
 
 const SPEED_PX_PER_S = 38;
@@ -62,6 +63,8 @@ function MarqueeRow({ skills, label }: { skills: { name: string }[]; label: stri
 }
 
 export function AboutSection() {
+  const { t } = useTrans();
+
   return (
     <section id="about" className={styles.section} aria-labelledby="about-heading">
       <div className={styles.container}>
@@ -76,7 +79,7 @@ export function AboutSection() {
             <div className={styles.bioCard}>
               <div className={styles.blobTri} aria-hidden="true" />
               <p className={styles.cardLabel}>Background</p>
-              <p className={styles.bio}>{personalInfo.bio}</p>
+              <p className={styles.bio}>{t(personalInfo.bio) as string}</p>
             </div>
           </div>
 
@@ -93,12 +96,12 @@ export function AboutSection() {
               <p className={styles.skillsHeader}>Tech Stack</p>
 
               {skillCategories.map((cat) => (
-                <div key={cat.category} className={styles.categoryBlock}>
+                <div key={t(cat.category) as string} className={styles.categoryBlock}>
                   <div className={styles.categoryHeader}>
                     <span className={styles.categoryDot} aria-hidden="true" />
-                    <h3 className={styles.categoryName}>{cat.category}</h3>
+                    <h3 className={styles.categoryName}>{t(cat.category) as string}</h3>
                   </div>
-                  <MarqueeRow skills={cat.skills} label={cat.category} />
+                  <MarqueeRow skills={cat.skills} label={t(cat.category) as string} />
                 </div>
               ))}
             </div>
