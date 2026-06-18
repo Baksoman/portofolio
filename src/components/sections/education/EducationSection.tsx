@@ -1,8 +1,13 @@
+"use client";
+
 import { education } from "@/src/data/education";
 import { SectionHeading } from "@/src/components/ui/SectionHeading";
+import { useTrans } from "@/src/contexts/LanguageContext";
 import styles from "./education.module.css";
 
 export function EducationSection() {
+  const { t } = useTrans();
+
   return (
     <section id="education" className={styles.section} aria-labelledby="education-heading">
       <div className={styles.container}>
@@ -17,7 +22,7 @@ export function EducationSection() {
               <div className={styles.cardTop}>
                 <div>
                   <h3 className={styles.degree}>
-                    {edu.degree} in {edu.field}
+                    {t(edu.degree)} in {t(edu.field)}
                   </h3>
                   <p className={styles.institution}>{edu.institution}</p>
                 </div>

@@ -4,8 +4,8 @@ export const education: Education[] = [
   {
     id: "university",
     institution: "State University of Technology",
-    degree: "Bachelor of Science",
-    field: "Informatics Engineering",
+    degree: { en: "Bachelor of Science", id: "Sarjana Sains" },
+    field: { en: "Informatics Engineering", id: "Teknik Informatika" },
     startYear: 2021,
     endYear: "Present",
     gpa: "3.75 / 4.00",
