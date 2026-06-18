@@ -27,6 +27,26 @@
   border-radius: 1.25rem;
   padding: 1.5rem;
   text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card:hover {
+  box-shadow: var(--neo-shadow-in);
+}
+
+.card:active {
+  transform: scale(0.98);
+  box-shadow: var(--neo-shadow-in);
+}
+
+.cardIcon {
+  color: var(--color-accent);
 }
 
 .cardLabel {
@@ -35,20 +55,15 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  margin-bottom: 0.5rem;
+  margin: 0;
 }
 
-.cardLink {
+.cardValue {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-accent);
-  text-decoration: none;
-  text-underline-offset: 3px;
+  color: var(--color-text);
+  margin: 0;
   word-break: break-all;
-}
-
-.cardLink:hover {
-  text-decoration: underline;
 }
 
 .resumeBtn {
