@@ -1,13 +1,23 @@
+export type LocalizedText = {
+  en: string;
+  id: string;
+};
+
+export type LocalizedArray = {
+  en: string[];
+  id: string[];
+};
+
 export interface PersonalInfo {
   name: string;
-  title: string;
-  tagline: string;
+  title: LocalizedText;
+  tagline: LocalizedText;
   email: string;
   github: string;
   // linkedin: string;
-  location: string;
+  location: LocalizedText;
   resumeUrl: string;
-  bio: string;
+  bio: LocalizedText;
 }
 
 export interface Skill {
@@ -16,44 +26,41 @@ export interface Skill {
 }
 
 export interface SkillCategory {
-  category: string;
+  category: LocalizedText;
   skills: Skill[];
 }
 
 export interface Project {
   id: string;
   title: string;
-  /** Short caption shown on the gallery card */
-  description: string;
-  /** Full detail shown in the lightbox */
-  longDescription?: string;
-  /** My personal contributions to the project */
-  contributions: string[];
+  role?: LocalizedText;
+  description: LocalizedText;
+  longDescription?: LocalizedText;
+  contributions: LocalizedArray;
   techStack: string[];
   githubUrl?: string;
   liveUrl?: string;
-  /** Path relative to /public, e.g. "/projects/my-app.jpg" */
   folderUrl?: string;
-  /** Solid fallback color when no image is provided (CSS color string) */
+  fileName?: string[];
   imageFallbackColor?: string;
 }
 
 export interface Experience {
   id: string;
-  role: string;
+  role: LocalizedText;
   organization: string;
   type: "internship" | "freelance" | "organization" | "activity";
   startDate: string;
   endDate: string | "Present";
-  description: string[];
+  description: LocalizedArray;
   skills?: string[];
 }
 
 export interface Education {
   id: string;
   institution: string;
-  degree: string;
-  field: string;
+  degree: LocalizedText;
+  field: LocalizedText;
   startYear: number;
   endYear: number | "Present";
   relevantCourses?: string[];

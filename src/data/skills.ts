@@ -2,7 +2,10 @@ import { SkillCategory } from "@/src/types/portfolio";
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Backend",
+    category: {
+      en: "Backend",
+      id: "Backend"
+    },
     skills: [
       { name: "PHP" },
       { name: "Laravel" },
@@ -10,7 +13,10 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    category: "Frontend",
+    category: {
+      en: "Frontend",
+      id: "Frontend"
+    },
     skills: [
       { name: "HTML" },
       { name: "CSS" },
@@ -23,13 +29,19 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    category: "Database",
+    category: {
+      en: "Database",
+      id: "Database"
+    },
     skills: [
       { name: "MySQL" },
     ],
   },
   {
-    category: "Tools & DevOps",
+    category: {
+      en: "Tools & DevOps",
+      id: "Tools & DevOps"
+    },
     skills: [
       { name: "Git" },
       { name: "GitHub" },
