@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ThemeToggle } from "@/src/components/theme/ThemeToggle";
+import { ThemeSwitchToggle } from "@/src/components/ui/ThemeSwitchToggle";
+import { LanguageToggle } from "@/src/components/language/LanguageToggle";
 
 const NAV_LINKS = [
   { label: "About",     href: "#about" },
@@ -93,9 +94,10 @@ export function Header() {
             </ul>
           </nav>
 
-          {/* Theme toggle */}
-          <div className="ml-4 flex items-center">
-            <ThemeToggle />
+          {/* Theme toggle + Language toggle */}
+          <div className="ml-4 flex items-center gap-2">
+            <LanguageToggle />
+            <ThemeSwitchToggle />
           </div>
         </div>
       </header>
@@ -142,7 +144,8 @@ export function Header() {
             </a>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle />
+              <LanguageToggle />
+              <ThemeSwitchToggle />
 
               {/* Hamburger / close button */}
               <button
