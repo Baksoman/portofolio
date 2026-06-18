@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/src/components/theme/ThemeProvider";
+import { LanguageProvider } from "@/src/contexts/LanguageContext";
 import { Header } from "@/src/components/layout/Header";
 import { Footer } from "@/src/components/layout/Footer";
 
@@ -47,13 +48,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col">
-        <ThemeProvider>
-          <Header />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider>
+            <Header />
+            <main id="main-content" className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
